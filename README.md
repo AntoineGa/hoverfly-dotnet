@@ -3,12 +3,16 @@ A .Net Library for Hoverfly (http://hoverfly.io/)
 
 Hoverfly is maintained by SpectoLabs (https://specto.io/)
 
+Hoverfly DotNet on NuGet https://www.nuget.org/packages/Hoverfly-DotNet
+
 # What is Hoverfly DotNet?
 Hoverfly is a lightweight service virtualisation tool which allows you to stub / simulate HTTP(S) services. It is a proxy written in Go which responds to HTTP(S) requests with stored responses, pretending to be it’s real counterpart.
 
 It enables you to get around common testing problems caused by external dependencies, such as non-deterministic data, flakiness, not yet implemented API’s, licensing fees, slow tests and more.
 
 Hoverfly .Net is a native language binding which gives you an expressive API for managing Hoverfly in .Net. It gives you a Hoverfly class which abstracts away the binary and API calls.
+
+***NOTE: If you run the tests in parallel you can only at the moment have one Hoverfly process started. In those cases you need to start the process before all tests will be running, and stop when all tests are done. BUT you can only have one simulation loaded, or you can first use hoverfly.GetSimulation method to get the current Simulation, then modify the Simulation object and then use hoverfly.ImportSimulation to import the “new” Simulation.***
 
 ###Example of using simulation:
 
